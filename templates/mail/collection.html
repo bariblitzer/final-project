@@ -1,0 +1,9 @@
+<h1>Your Collection</h1>
+
+<div>
+	<ul>
+{% for movie in lst %}
+<li>{{movie.Movie.title}} -- <em>{{movie.Genre.name}}</em></li>
+{% endfor %}
+</ul>
+</div>

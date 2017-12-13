@@ -1,0 +1,11 @@
+<h1>Your Collection</h1>
+
+<div>
+	<ul>
+{% for movie in list_collection %}
+<li><a href="/movie/{{movie.Movie.title}}/description">{{movie.Movie.title}}<a/> -- <em>{{movie.Genre.name}}</em></li>
+{% endfor %}
+</ul>
+</div>
+
+<p><a href="/">Go home!!</a></p>

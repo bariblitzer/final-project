@@ -1,0 +1,4 @@
+<h1>Results:</h1>
+{% for res in results %}
+<a href="/movie/{{res["trackName"]}}/description"><p>{{res["trackName"]}}</p></a>
+{% endfor %}

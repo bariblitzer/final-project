@@ -1,0 +1,39 @@
+<form method="POST" action="/results">
+	{{ form.hidden_tag() }}
+	{{ form.actor1.label }} {{ form.actor1() }}
+	{{ form.actor2.label }} {{ form.actor2() }}
+	{{ form.actor3.label }} {{ form.actor3() }}
+	{{ form.genre_list.label }} {{ form.genre_list() }}
+	{{ form.submit() }}
+</form>
+
+<p><a href="/collections">See my List</a></p>
+<p><a href="/collection">Email me my List</a></p>
+
+<h1>Upload new Profile Picture</h1>
+    <form method=post enctype=multipart/form-data action="/upload">
+      <p><input type=file name=file>
+         <input type=submit value=Upload>
+    </form>
+
+<button onClick="showUserList()">Show AJAX Movie List</button>
+
+<script>
+function showUserList () {
+
+var request = $.ajax({
+  url: "/collections_api",
+  method: "GET",
+  dataType: "json"
+});
+ 
+request.done(function( user_list_data ) {
+	for (var i = user_list_data.user_list.length - 1; i >= 0; i--) {
+		alert("Movie: " + user_list_data.user_list[i].title)
+	};
+});
+}
+
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
